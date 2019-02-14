@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import datetime
+import datetime     
 import urllib.parse
-from collections import namedtuple
+from collections import namedtuple # 特別的一種資料型別，可以幫tuple加名字　
 try:
     from json.decoder import JSONDecodeError
 except ImportError:
@@ -24,6 +24,9 @@ DATATUPLE = namedtuple('Data', ['date', 'capacity', 'turnover', 'open',
                                 'high', 'low', 'close', 'change', 'transaction'])
 
 
+"""
+因為有二個Class，一個是上市TWSE，一個是上櫃TPEX，所以先做一個base class
+"""
 class BaseFetcher(object):
     def fetch(self, year, month, sid, retry):
         pass
